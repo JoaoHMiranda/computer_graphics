@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d18mgjq4cciro"]
 
-[ext_resource type="Script" uid="uid://b2r34jbucbtnv" path="res://scripts/FormaArea.gd" id="1_8o7ul"]
+[ext_resource type="Script" uid="uid://b2r34jbucbtnv" path="res://scripts/Exercicio01.gd" id="1_8o7ul"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(364, 269)

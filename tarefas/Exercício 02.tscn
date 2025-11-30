@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0q4k30tkd8q3"]
+
+[ext_resource type="Shader" uid="uid://cn1jh5and5oti" path="res://shaders/pattern_shader.tres" id="1_53u78"]
+[ext_resource type="Texture2D" uid="uid://dbd1017851j5d" path="res://shaders/roxo.png" id="2_wyij7"]
+[ext_resource type="Script" uid="uid://ic4fbxxycysj" path="res://scripts/Exercicio02.gd" id="3_5hmga"]
+[ext_resource type="Texture2D" uid="uid://b8it30xr8r3ti" path="res://shaders/branco.png" id="4_thcdv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53u78"]
+shader = ExtResource("1_53u78")
+shader_parameter/pattern_tex = ExtResource("2_wyij7")
+shader_parameter/tiles_x = 2
+shader_parameter/tiles_y = 2
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(462, 231)
+
+[node name="PatternSprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_53u78")
+position = Vector2(75, 88)
+texture = ExtResource("2_wyij7")
+script = ExtResource("3_5hmga")
+textura_listras = ExtResource("2_wyij7")
+textura_pontos = ExtResource("4_thcdv")

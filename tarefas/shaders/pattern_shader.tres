@@ -1,0 +1,15 @@
+[gd_resource type="Shader" format=3 uid="uid://cn1jh5and5oti"]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform sampler2D pattern_tex;
+uniform int tiles_x = 4;
+uniform int tiles_y = 4;
+
+void fragment() {
+    vec2 tiled_uv = fract(UV * vec2(float(tiles_x), float(tiles_y)));
+    vec4 tex = texture(pattern_tex, tiled_uv);
+    COLOR = tex;
+}
+"
