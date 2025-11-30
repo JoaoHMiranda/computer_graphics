@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="Novo Projeto de Jogo"
-run/main_scene="uid://c0q4k30tkd8q3"
+run/main_scene="uid://gen83tq3wh0b"
 config/features=PackedStringArray("4.5", "Forward Plus")
