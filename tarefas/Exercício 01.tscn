@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://d18mgjq4cciro"]
+
+[ext_resource type="Script" uid="uid://b2r34jbucbtnv" path="res://scripts/FormaArea.gd" id="1_8o7ul"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(364, 269)
+
+[node name="Triangulo" type="Area2D" parent="."]
+position = Vector2(-175, 2)
+script = ExtResource("1_8o7ul")
+
+[node name="Polygon2D" type="Polygon2D" parent="Triangulo"]
+
+[node name="Line2D" type="Line2D" parent="Triangulo"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Triangulo"]
+
+[node name="Hexagono" type="Area2D" parent="."]
+position = Vector2(653, -26)
+script = ExtResource("1_8o7ul")
+raio = 90.0
+lados = 6
+
+[node name="Polygon2D" type="Polygon2D" parent="Hexagono"]
+
+[node name="Line2D" type="Line2D" parent="Hexagono"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hexagono"]
+
+[node name="Estrela" type="Area2D" parent="."]
+position = Vector2(208, 205)
+script = ExtResource("1_8o7ul")
+raio = 100.0
+lados = 5
+estrela = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Estrela"]
+
+[node name="Line2D" type="Line2D" parent="Estrela"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Estrela"]
