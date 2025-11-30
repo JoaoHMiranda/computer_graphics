@@ -10,6 +10,6 @@ config_version=5
 
 [application]
 
-config/name="Novo Projeto de Jogo"
-run/main_scene="uid://gen83tq3wh0b"
+config/name="Tarefa"
+run/main_scene="uid://dey3w27t2s2sx"
 config/features=PackedStringArray("4.5", "Forward Plus")

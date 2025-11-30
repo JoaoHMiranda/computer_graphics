@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dd0ym2w0byl2q"]
+
+[ext_resource type="Script" uid="uid://b6sg4hw8p4ua" path="res://scripts/player.gd" id="1_nqtm7"]
+[ext_resource type="Script" uid="uid://b6tl0mr1mgyol" path="res://scripts/SpotCor.gd" id="2_erjds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rlt4p"]
+albedo_color = Color(0, 0.6039216, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rlt4p"]
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8ovv"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kt3k5"]
+albedo_color = Color(0.5175624, 0.5217069, 0.49214357, 1)
+metallic = 1.0
+metallic_specular = 0.3
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_n15e2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stswi"]
+
+[node name="World" type="Node3D"]
+
+[node name="caho" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="caho"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rlt4p")
+mesh = SubResource("PlaneMesh_rlt4p")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="caho"]
+shape = SubResource("BoxShape3D_r8ovv")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_nqtm7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+material_override = SubResource("StandardMaterial3D_kt3k5")
+mesh = SubResource("BoxMesh_n15e2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player"]
+material_override = SubResource("StandardMaterial3D_kt3k5")
+mesh = SubResource("BoxMesh_n15e2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_stswi")
+
+[node name="Camera" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 3, 6)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player/Camera"]
+transform = Transform3D(0.9998477, 0.017452406, 0, -0.017452406, 0.9998477, 0, 0, 0, 1, 0, 0, 0)
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 6.138
+shadow_enabled = true
+spot_range = 15.0
+script = ExtResource("2_erjds")

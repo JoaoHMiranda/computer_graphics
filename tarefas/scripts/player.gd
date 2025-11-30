@@ -9,18 +9,16 @@ var yaw: float = 0.0
 
 
 func _ready() -> void:
-	# começa com a rotação atual do player
 	yaw = rotation.y
 
 
 func _physics_process(delta: float) -> void:
 	rotacionar(delta)
-	mover(delta)
+	mover()
 	move_and_slide()
 
 
 func rotacionar(delta: float) -> void:
-	# gira o PLAYER (e a camera junto, porque ela é filha)
 	if Input.is_action_pressed("ui_left"):
 		yaw -= rot_speed * delta
 	if Input.is_action_pressed("ui_right"):
@@ -29,14 +27,12 @@ func rotacionar(delta: float) -> void:
 	rotation.y = yaw
 
 
-func mover(delta: float) -> void:
+func mover() -> void:
 	var input_dir := Vector2.ZERO
 
-	# CIMA = pra frente
 	if Input.is_action_pressed("ui_up"):
 		input_dir.y += 1.0
 
-	# BAIXO = pra trás
 	if Input.is_action_pressed("ui_down"):
 		input_dir.y -= 1.0
 
@@ -47,18 +43,16 @@ func mover(delta: float) -> void:
 
 	input_dir = input_dir.normalized()
 
-	# base do player (que tem mesma rotação Y da camera)
-	var basis := global_transform.basis
+	var player_basis := global_transform.basis
 
-	var forward := -basis.z
+	var forward := -player_basis.z
 	forward.y = 0.0
 	forward = forward.normalized()
 
-	var right := basis.x
+	var right := player_basis.x
 	right.y = 0.0
 	right = right.normalized()
 
-	# combina frente/trás relativo à direção do player/camera
 	var move_dir := (forward * input_dir.y) + (right * input_dir.x)
 	move_dir = move_dir.normalized()
 

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://dey3w27t2s2sx"]
+
+[ext_resource type="Script" uid="uid://7uuskuq0s4n8" path="res://scripts/Menu.gd" id="1_a6cnp"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_a6cnp")
+
+[node name="BotaoIniciar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -66.0
+offset_right = 59.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Iniciar Cena 3D"
+
+[node name="BotaoOpcoes" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -28.0
+offset_right = 59.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Opções"
+
+[node name="Sair" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 11.0
+offset_right = 59.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sair"
+
+[connection signal="pressed" from="BotaoIniciar" to="." method="_on_botao_iniciar_pressed"]
+[connection signal="pressed" from="BotaoOpcoes" to="." method="_on_botao_opcoes_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
